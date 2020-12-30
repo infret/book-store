@@ -38,7 +38,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function BooksPage(p
 	const {books} = props
 
 	useEffect(()=>{
-		axios.get('/books.json').then(response => {
+		axios.get('https://infret.github.io/online-store/books.json').then(response => {
 			setBooks(response.data)
 		})
 	})
@@ -48,7 +48,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function BooksPage(p
 				<Heading>Books</Heading>
 				 <Books>
 					 {books.map(book => (
-					 		<BookCard img={book.image} title={book.title} author={book.author} price={book.price}/>
+					 		<BookCard key={book.id} img={book.image} title={book.title} author={book.author} price={book.price}/>
 					 ))
 					 }
 				 </Books>

@@ -1,14 +1,9 @@
 const initialState = {
 	isReady: false,
-	items: [
-		{
-			id:0,
-			title: 'Mein Kapmf!'
-		}
-	],
+	items: [],
 }
 
-export default function(state = initialState, action){
+export default function booksReducer(state = initialState, action){
 	switch (action.type) {
 		case 'SET_BOOKS':
 			return {
