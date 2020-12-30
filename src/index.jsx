@@ -1,38 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styled from 'styled-components'
 import { createGlobalStyle } from 'styled-components'
-import store from './store'
+import createStore from './store'
 import {Provider} from 'react-redux'
+import BooksPage from './components/BooksPage'
 
 const GlobalStyle = createGlobalStyle`
 	* {
 		margin: 0;
 		padding: 0;
+		--elevation: 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
+		font-family: sans-serif;
+text-transform: none;
 	}
 `
 
-const Body = styled.main`
-	width: 100%;
-	height: 100%;
-	max-width: 1000px;
-	margin: 0 auto;
-	padding: 0;
-`
-
-const Heading = styled.h1`
-	text-align: center;
-	margin: 10px;
-`
+const store = createStore()
 
 ReactDOM.render(
 		<React.StrictMode>
 			<GlobalStyle/>
-			<Provider store={store()}>
-			<Body>
-				<Heading>Store</Heading>
-			</Body>
+			<Provider store={store}>
+				<BooksPage/>
 			</Provider>
 		</React.StrictMode>,
-		document.body,
+		document.getElementById('root'),
 )

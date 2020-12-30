@@ -1,21 +1,25 @@
-const initialState =  {
-	books: [
-
-	]
+const initialState = {
+	isReady: false,
+	items: [
+		{
+			id:0,
+			title: 'Mein Kapmf!'
+		}
+	],
 }
 
-export default (state, action) => {
-	switch (action.type){
+export default function(state = initialState, action){
+	switch (action.type) {
 		case 'SET_BOOKS':
 			return {
-				books: action.payload
+				...state,
+				items: action.payload,
+				isReady: true
 			}
-		case 'ADD_BOOKS':
+		case 'BOOKS_ARE_READY':
 			return {
-				books: [
-						...state.books,
-						action.payload
-				]
+				...state,
+				isReady: action.payload
 			}
 		default:
 			return state
