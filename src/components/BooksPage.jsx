@@ -6,7 +6,7 @@ import axios from 'axios'
 import BookCard from './BookCard'
 
 const Body = styled.div`
-	width: 100%;
+	width: 100vw;
 	height: 100%;
 	max-width: 1000px;
 	margin: 0 auto;
@@ -22,11 +22,42 @@ const Books = styled.ul`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	align-items: center;
 	list-style-type: none;
+	margin: 0 auto;
+`
+
+const Loading = styled.div`
+	width: 80px;
+	height: 80px;
+	position: absolute;
+	top: 40vh;
+	margin: auto;
+	&::after {
+		content: " ";
+		display: block;
+		width: 64px;
+		height: 64px;
+		margin: 8px;
+		border-radius: 50%;
+		border: 6px solid #000;
+		border-color: #000 transparent #000 transparent;
+		animation: loading 1s linear infinite;
+		@keyframes loading {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+
+	}
 `
 
 const mapStateToProps = ({books}) => ({
-	books: books.items
+	books: books.items,
+	isReady: books.isReady,
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -35,9 +66,9 @@ const mapDispatchToProps = dispatch => ({
 
 export default connect(mapStateToProps, mapDispatchToProps)(function BooksPage(props) {
 	const {setBooks} = props
-	const {books} = props
+	const {books, isReady} = props
 
-	useEffect(()=>{
+	useEffect(() => {
 		axios.get('https://infret.github.io/online-store/books.json').then(response => {
 			setBooks(response.data)
 		})
@@ -46,12 +77,11 @@ export default connect(mapStateToProps, mapDispatchToProps)(function BooksPage(p
 	return (
 			<Body>
 				<Heading>Books</Heading>
-				 <Books>
-					 {books.map(book => (
-					 		<BookCard key={book.id} img={book.image} title={book.title} author={book.author} price={book.price}/>
-					 ))
-					 }
-				 </Books>
+				<Books>
+					{!isReady ? <Loading/> : books.map(book => <BookCard {...book}/>
+					)
+					}
+				</Books>
 			</Body>
 	)
 })
