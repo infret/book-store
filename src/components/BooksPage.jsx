@@ -1,9 +1,8 @@
 import React, {useEffect} from 'react'
 import styled from 'styled-components'
-import {connect} from 'react-redux'
-import {setBooks} from '../actions/books'
 import axios from 'axios'
 import BookCard from './BookCard'
+import SortField from './SortField'
 
 const Body = styled.div`
 	width: 100vw;
@@ -40,7 +39,6 @@ const Loading = styled.div`
 		height: 64px;
 		margin: 8px;
 		border-radius: 50%;
-		border: 6px solid #000;
 		border-color: #000 transparent #000 transparent;
 		animation: loading 1s linear infinite;
 		@keyframes loading {
@@ -55,20 +53,11 @@ const Loading = styled.div`
 	}
 `
 
-const mapStateToProps = ({books}) => ({
-	books: books.items,
-	isReady: books.isReady,
-})
-
-const mapDispatchToProps = dispatch => ({
-	setBooks: books => dispatch(setBooks(books)),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(function BooksPage(props) {
-	const {setBooks} = props
+export default function BooksPage(props) {
 	const {books, isReady} = props
 
 	useEffect(() => {
+		const {setBooks} = props
 		axios.get('https://infret.github.io/online-store/books.json').then(response => {
 			setBooks(response.data)
 		})
@@ -77,11 +66,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(function BooksPage(p
 	return (
 			<Body>
 				<Heading>Books</Heading>
+				<SortField/>
 				<Books>
-					{!isReady ? <Loading/> : books.map(book => <BookCard {...book}/>
-					)
-					}
+					{!isReady ? <Loading/> : books.map(book => <BookCard {...book}/>)}
 				</Books>
 			</Body>
 	)
-})
+}

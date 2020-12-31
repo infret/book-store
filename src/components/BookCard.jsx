@@ -1,21 +1,17 @@
 import styled from 'styled-components'
 
 const Body = styled.li`
-	width: 240px;
-	border-radius: 10px;
-	margin: 8px;
+	width: 230px;
+	margin: 10px;
 	box-shadow: var(--low-elevation);
-	padding-top: 10px;
 	&:hover {
 		box-shadow: var(--high-elevation);
-
 	}
 	@media (max-width: 360px) {
 		width: 90%;
-		padding-top: 0;
 	}
 	@media (min-width: 360px) and (max-width: 640px) {
-		width: 44%;
+		width: 40%;
 	}
 	@media (min-width: 640px) and (max-width: 720px) {
 		width: 30%;
@@ -26,7 +22,7 @@ const Body = styled.li`
 `
 
 const Preview = styled.img`
-	width: auto;
+	width: 100%;
 	display: block;
 	height: 240px;
 	margin: 0 auto;
@@ -55,12 +51,15 @@ const Author = styled.p`
 	white-space: nowrap;
 `
 
+const Container = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+`
+
 const Price = styled.p`
-	float: left;
 	font-weight: 600;
-	margin: 15px;
-	position: relative;
-	display: inline-block;
+	margin: 10px;
 	width: 32px;
 `
 
@@ -71,9 +70,7 @@ const Button = styled.button`
 	border-radius: 5px;
 	padding: 10px 15px;
 	margin: 10px;
-	float: right;
 	cursor: pointer;
-	display: inline-block;
 	font-size: 15px;
 `
 
@@ -83,8 +80,10 @@ export default function BookCard({image, title, author, price}){
 				<Preview src={image} alt=''/>
 				<Title>{title}</Title>
 				<Author>{author}</Author>
+				<Container>
 				<Price>${price}</Price>
 				<Button>To cart</Button>
+				</Container>
 			</Body>
 	)
 }

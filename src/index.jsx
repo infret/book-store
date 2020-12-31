@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { createGlobalStyle } from 'styled-components'
 import createStore from './store'
 import {Provider} from 'react-redux'
-import BooksPage from './components/BooksPage'
+import BooksPage from './components/BooksContainer'
 
 const GlobalStyle = createGlobalStyle`
 	* {
