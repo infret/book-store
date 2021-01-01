@@ -65,7 +65,7 @@
   },
   {
     "id": 8,
-    "title": "7 навыков высокоэффективных людей: Мощные...",
+    "title": "7 навыков высокоэффективных людей",
     "author": "Стивен Кови",
     "image": "https://cv8.litres.ru/pub/c/elektronnaya-kniga/cover_415/4239285--.jpg",
     "price": 7.4,
@@ -89,66 +89,10 @@
   },
   {
     "id": 11,
-    "title": "Азиатская европеизация. История Российского государства. Царь Петр...",
+    "title": "Азиатская европеизация. История Российского государства",
     "author": "Борис Акунин",
     "image": "https://cv3.litres.ru/sbc/31629439_cover_185-elektronnaya-kniga-boris-akunin-aziatskaya-evropeizaciya-istoriya-rossiyskogo-gosudarstva-car-petr-alekseevich.jpg",
     "price": 7.9,
     "rating": 2
-  },
-  {
-    "id": 12,
-    "title": "Ведьмак",
-    "author": "Анджей Сапковский",
-    "image": "https://cv6.litres.ru/pub/c/elektronnaya-kniga/cover_415/6375365-andzhey-sapkovskiy-vedmak.jpg",
-    "price": 8.2,
-    "rating": 3
-  },
-  {
-    "id": 13,
-    "title": "Атлант расправил плечи",
-    "author": "Айн Рэнд",
-    "image": "https://cv7.litres.ru/pub/c/elektronnaya-kniga/cover_415/4236675-ayn-rend-atlant-raspravil-plechi.jpg",
-    "price": 5.2,
-    "rating": 2
-  },
-  {
-    "id": 14,
-    "title": "Цена вопроса. Том 1",
-    "author": "Александра Маринина",
-    "image": "https://cv6.litres.ru/sbc/33285466_cover_185-elektronnaya-kniga-aleksandra-marinina-cena-voprosa-tom-1-22638660.jpg",
-    "price": 6.9,
-    "rating": 0
-  },
-  {
-    "id": 15,
-    "title": "Исчезнувшая",
-    "author": "Гиллиан Флинн",
-    "image": "https://cv2.litres.ru/sbc/11029722_cover_185-elektronnaya-kniga-gillian-flinn-ischeznuvshaya.jpg",
-    "price": 7.6,
-    "rating": 4
-  },
-  {
-    "id": 17,
-    "title": "Метро 2035",
-    "author": "Дмитрий Глуховский",
-    "image": "https://cv9.litres.ru/sbc/13698392_cover_185-elektronnaya-kniga-dmitriy-gluhovskiy-metro-2035.jpg",
-    "price": 8.37,
-    "rating": 4
-  },
-  {
-    "id": 18,
-    "title": "Снеговик",
-    "author": "Ю Несбё",
-    "image": "https://cv6.litres.ru/pub/c/elektronnaya-kniga/cover_415/4578362-u-nesbe-snegovik-4578362.jpg",
-    "price": 7.96,
-    "rating": 5
-  },
-  {
-    "id": 19,
-    "title": "Как тренировать память. Не думайте о памяти – лучше используйте ее на все сто!",
-    "author": "Джонатан Хэнкок",
-    "image": "https://cv1.litres.ru/sbc/14195715_cover_185-elektronnaya-kniga-dzhonatan-henkok-kak-trenirovat-pamyat-ne-dumayte-o-pamyati-luchshe-ispolzuyte-ee-na-vse-sto.jpg",
-    "price": 5.99,
-    "rating": 5
   }
 ]
