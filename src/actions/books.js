@@ -3,7 +3,7 @@ export const setBooks = (books) => ({
 	payload: books
 })
 
-export  const  setFilter = (filter) => ({
-	type: 'SET_FILTER',
-	payload: filter
+export  const  sortBooks = (sortBy) => ({
+	type: 'SORT_BOOKS',
+	payload: sortBy
 })

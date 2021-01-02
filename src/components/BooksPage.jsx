@@ -11,11 +11,6 @@ const Body = styled.div`
 	padding: 0;
 `
 
-const Heading = styled.h1`
-	text-align: center;
-	margin: 20px;
-`
-
 const Books = styled.ul`
 	display: flex;
 	flex-wrap: wrap;
@@ -55,7 +50,7 @@ const Loading = styled.div`
 `
 
 export default function BooksPage(props) {
-	const {books, isReady, setFilter, setBooks} = props
+	const {books, isReady, setBooks} = props
 
 	useEffect(() => {
 		axios.get('https://infret.github.io/online-store/books.json').then(response => {
@@ -65,7 +60,6 @@ export default function BooksPage(props) {
 
 	return (
 			<Body>
-				<Heading>Books</Heading>
 				<SortField/>
 				<Books>
 					{isReady ? books.map((book,i) => <BookCard key={i} {...book}/>) : <Loading/>}
