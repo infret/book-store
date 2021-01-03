@@ -9,12 +9,12 @@ import cartIcon from './resources/cart.svg'
 
 const GlobalStyle = createGlobalStyle`
 	* {
-		margin: 0;
-		padding: 0;
+		--accent-color: #427AA9;
 		--low-elevation: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
 		--high-elevation: 0 6px 6px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
 		font-family: sans-serif;
-		text-transform: none;
+		margin: 0;
+		padding: 0;
 	}
 `
 
@@ -38,16 +38,7 @@ const Title = styled.h1`
 	font-weight: bold;
 	margin-left: 5px;
 	font-size: 18px;
-	color: black;
-`
-
-const Searchbar = styled.input`
-	width: 200px;
-	border: 1px solid gainsboro;
-	outline: none;
-	height: 36px;
-	font-size: 16px;
-	padding: 0 10px;
+	color: var(--accent-color);
 `
 
 const CartButton = styled.button`
@@ -71,7 +62,6 @@ ReactDOM.render(
 						<img src={bookIcon} alt=''/>
 						<Title>Bookstore</Title>
 					</Logo>
-					<Searchbar type='search' placeholder='Search'/>
 					<CartButton/>
 				</Header>
 				<BooksPage/>

@@ -14,10 +14,11 @@ const Body = styled.div`
 const Books = styled.ul`
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
+	justify-content: space-evenly;
 	align-items: center;
 	list-style-type: none;
 	margin: 0 auto;
+	padding: 5px;
 `
 
 const Loading = styled.div`

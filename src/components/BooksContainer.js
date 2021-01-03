@@ -4,7 +4,10 @@ import BooksPage from './BooksPage'
 import {bindActionCreators} from 'redux'
 import orderBy from 'lodash/orderBy'
 
-const sortBy = (books, sortBy) => {
+const sortBy = (books, sortBy, filterBy) => {
+	books = books.filter(object =>
+			object.title.toLowerCase().indexOf(filterBy.toLowerCase()) >=0 || object.author.toLowerCase().indexOf(filterBy.toLowerCase()) >=0
+	)
 	switch (sortBy) {
 		case 'price':
 			return orderBy(books, 'price', 'asc')
@@ -18,7 +21,7 @@ const sortBy = (books, sortBy) => {
 }
 
 const mapStateToProps = ({books}) => ({
-	books: sortBy(books.items, books.sortBy),
+	books: books.items ? sortBy(books.items, books.sortBy, books.filterBy) : null,
 	isReady: books.isReady
 })
 

@@ -1,7 +1,8 @@
 const initialState = {
 	isReady: false,
 	items: [],
-	sortBy: 'rating'
+	sortBy: 'placeholder',
+	filterBy: ''
 }
 
 export default function booksReducer(state = initialState, action){
@@ -16,6 +17,11 @@ export default function booksReducer(state = initialState, action){
 			return {
 				...state,
 				sortBy: action.payload,
+			}
+		case 'FILTER_BOOKS':
+			return {
+				...state,
+				filterBy: action.payload
 			}
 		case 'BOOKS_ARE_READY':
 			return {

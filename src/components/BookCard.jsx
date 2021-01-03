@@ -1,23 +1,12 @@
 import styled from 'styled-components'
 
 const Body = styled.li`
-	width: 230px;
-	margin: 10px;
+	width: 180px;
+	margin: 5px;
 	box-shadow: var(--low-elevation);
+	border-radius: 4px;
 	&:hover {
 		box-shadow: var(--high-elevation);
-	}
-	@media (max-width: 360px) {
-		width: 90%;
-	}
-	@media (min-width: 360px) and (max-width: 640px) {
-		width: 40%;
-	}
-	@media (min-width: 640px) and (max-width: 720px) {
-		width: 30%;
-	}
-	@media (min-width: 720px) and (max-width: 4000px){
-		width: 20%;
 	}
 `
 
@@ -26,6 +15,7 @@ const Preview = styled.img`
 	display: block;
 	height: 240px;
 	margin: 0 auto;
+	border-radius: 4px 4px 0 0;
 	@media (max-width: 360px){
 		width: 100%;
 		height: auto;
@@ -64,14 +54,15 @@ const Price = styled.p`
 `
 
 const Button = styled.button`
-	background-color: cadetblue;
+	background-color: var(--accent-color);
 	color: white;
 	border: none;
-	border-radius: 5px;
+	border-radius: 4px;
 	padding: 10px 15px;
 	margin: 10px;
 	cursor: pointer;
 	font-size: 15px;
+	height: 36px;
 `
 
 export default function BookCard({image, title, author, price}){
