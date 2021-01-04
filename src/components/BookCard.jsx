@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-const Body = styled.li`
+const Card = styled.li`
 	width: 180px;
-	margin: 5px;
+	margin-top: 10px;
 	box-shadow: var(--low-elevation);
 	border-radius: 4px;
 	&:hover {
@@ -67,7 +67,7 @@ const Button = styled.button`
 
 export default function BookCard({image, title, author, price}){
 	return (
-			<Body>
+			<Card>
 				<Preview src={image} alt=''/>
 				<Title>{title}</Title>
 				<Author>{author}</Author>
@@ -75,6 +75,6 @@ export default function BookCard({image, title, author, price}){
 				<Price>${price}</Price>
 				<Button>To cart</Button>
 				</Container>
-			</Body>
+			</Card>
 	)
 }

@@ -3,9 +3,9 @@ import React from 'react'
 
 const Sort = styled.form`
 display: flex;
-align-items: center;
 justify-content: center;
-padding-top: 10px;`
+margin-top: 10px;
+`
 
 const Select = styled.select`
 	font-size: 16px;
@@ -13,10 +13,10 @@ const Select = styled.select`
 	border: 2px solid var(--accent-color);
 	border-radius: 4px;
 	outline: none;
-	width: 200px;
+	width: 180px;
 	height: 36px;
-	padding: 0 7px;
-	color: grey;
+	padding: 0 6px;
+	color: #696969;
 	margin: 8px;
 
 	& > option:first-child {
@@ -25,7 +25,7 @@ const Select = styled.select`
 `
 
 const Searchbar = styled.input`
-	width: 200px;
+	width: 180px;
 	border: 2px solid var(--accent-color);
 	outline: none;
 	height: 36px;

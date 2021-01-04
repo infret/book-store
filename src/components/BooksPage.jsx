@@ -6,19 +6,15 @@ import SortField from './SortContainer'
 
 const Body = styled.div`
 	width: 100%;
-	max-width: 1000px;
 	margin: 0 auto;
-	padding: 0;
+	max-width: 1000px;
 `
 
 const Books = styled.ul`
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-evenly;
-	align-items: center;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 180px);
 	list-style-type: none;
-	margin: 0 auto;
-	padding: 5px;
+	justify-content: space-evenly;
 `
 
 const Loading = styled.div`
