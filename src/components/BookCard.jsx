@@ -13,7 +13,7 @@ const Card = styled.li`
 const Preview = styled.img`
 	width: 100%;
 	display: block;
-	height: 240px;
+	height: 250px;
 	margin: 0 auto;
 	border-radius: 4px 4px 0 0;
 	@media (max-width: 360px){
@@ -62,10 +62,10 @@ const Button = styled.button`
 	margin: 10px;
 	cursor: pointer;
 	font-size: 15px;
-	height: 36px;
+	height: 37px;
 `
 
-export default function BookCard({image, title, author, price}){
+export default function BookCard({image, title, author, price, isInCart}){
 	return (
 			<Card>
 				<Preview src={image} alt=''/>

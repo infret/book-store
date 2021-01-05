@@ -15,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
 		font-family: sans-serif;
 		margin: 0;
 		padding: 0;
+		text-decoration: none;
 	}
 `
 
@@ -23,22 +24,11 @@ const Header = styled.header`
 	height: 60px;
 	display: flex;
 	top: 0;
+	z-index: 1;
 	background-color: white;
 	border-radius: 0 0 4px 4px;
 	align-items: center;
 	position: sticky;
-	width: 100%;
-	max-width: 1000px;
-	margin: 0 auto;
-`
-
-const Footer = styled.footer`
-	box-shadow: var(--low-elevation);
-	height: 60px;
-	display: flex;
-	background-color: white;
-	border-radius: 4px 4px 0 0;
-	align-items: center;
 	width: 100%;
 	max-width: 1000px;
 	margin: 0 auto;
@@ -69,6 +59,28 @@ const CartButton = styled.button`
 	margin: 0 20px 0 auto;
 `
 
+const Footer = styled.footer`
+	box-shadow: var(--low-elevation);
+	height: 60px;
+	display: flex;
+	background-color: white;
+	border-radius: 4px 4px 0 0;
+	align-items: center;
+	width: 100%;
+	max-width: 1000px;
+	margin-top: 20px;
+	position: relative;
+	bottom: 0;
+`
+
+const Link = styled.a`
+	display: block;
+	text-transform: lowercase;
+	font-family: serif;
+	color: grey;
+	margin: 0 auto;
+`
+
 ReactDOM.render(
 		<React.StrictMode>
 			<GlobalStyle/>
@@ -82,7 +94,7 @@ ReactDOM.render(
 				</Header>
 				<BooksPage/>
 				<Footer>
-					<p>Made by Vlad Pechkin</p>
+					<Link href='https://infret.github.io'><i>by Infret</i></Link>
 				</Footer>
 			</Provider>
 		</React.StrictMode>,

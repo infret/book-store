@@ -2,12 +2,13 @@ import React, {useEffect} from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
 import BookCard from './BookCard'
-import SortField from './SortContainer'
+import SortField from './FilterContainer'
 
 const Body = styled.div`
 	width: 100%;
 	margin: 0 auto;
 	max-width: 1000px;
+	min-height: 100vh;
 `
 
 const Books = styled.ul`
@@ -15,19 +16,20 @@ const Books = styled.ul`
 	grid-template-columns: repeat(auto-fill, 180px);
 	list-style-type: none;
 	justify-content: space-evenly;
+	position: relative;
 `
 
 const Loading = styled.div`
 	border-radius: 50%;
 	width: 50px;
 	height: 50px;
-	margin: 60px auto;
-	position: relative;
-	border-top: 5px solid rgba(0, 0, 0, 0.2);
-	border-right: 5px solid rgba(0, 0, 0, 0.2);
-	border-bottom: 5px solid rgba(0, 0, 0, 0.2);
-	border-left: 5px solid black;
-	transform: translateZ(0);
+	position: absolute;
+	top: 30vh;
+	left: calc(50% - 27px);
+	border-top: 5px solid gainsboro;
+	border-right: 5px solid gainsboro;
+	border-bottom: 5px solid gainsboro;
+	border-left: 5px solid var(--accent-color);
 	animation: loading 1s infinite linear;
 	
 	&:after {
