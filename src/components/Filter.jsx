@@ -8,7 +8,7 @@ const Sort = styled.form`
 `
 
 const Select = styled.select`
-	color: #696969;
+	color: grey;
 	background-color: transparent;
 	border: 2px solid var(--accent-color);
 	outline: none;
@@ -26,7 +26,7 @@ const Select = styled.select`
 `
 
 const Searchbar = styled.input`
-	color: #696969;
+	color: grey;
 	background-color: transparent;
 	border: 2px solid var(--accent-color);
 	outline: none;
@@ -39,7 +39,7 @@ const Searchbar = styled.input`
 	padding: 5px 6px;
 `
 
-const BooksFilter = ({sortBooks, sortBy, filterBooks, filterBy}) => (
+const Filter = ({sortBooks, sortBy, filterBooks, filterBy}) => (
 		<Sort>
 			<Select value={sortBy} onChange={e => sortBooks(e.target.value)}>
 				<option disabled value='placeholder'>Sort by</option>
@@ -53,4 +53,4 @@ const BooksFilter = ({sortBooks, sortBy, filterBooks, filterBy}) => (
 		</Sort>
 )
 
-export default BooksFilter
+export default Filter

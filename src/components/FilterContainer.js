@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
-import * as booksActions from '../actions/books'
-import BooksFilter from './BooksFilter'
+import * as booksActions from '../actions'
+import Filter from './Filter'
 import {bindActionCreators} from 'redux'
 
 const mapStateToProps = ({books}) => ({
@@ -11,4 +11,4 @@ const mapDispatchToProps = dispatch => ({
 	...bindActionCreators(booksActions, dispatch)
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(BooksFilter)
+export default connect(mapStateToProps, mapDispatchToProps)(Filter)

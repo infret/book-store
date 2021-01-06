@@ -4,8 +4,7 @@ import styled, {createGlobalStyle} from 'styled-components'
 import createStore from './store'
 import {Provider} from 'react-redux'
 import BooksPage from './components/BooksContainer'
-import bookIcon from './resources/book.svg'
-import cartIcon from './resources/cart.svg'
+import Header from './components/HeaderContainer'
 
 const GlobalStyle = createGlobalStyle`
 	* {
@@ -16,47 +15,8 @@ const GlobalStyle = createGlobalStyle`
 		margin: 0;
 		padding: 0;
 		text-decoration: none;
+		-moz-appearance: none;
 	}
-`
-
-const Header = styled.header`
-	box-shadow: var(--low-elevation);
-	height: 60px;
-	display: flex;
-	top: 0;
-	z-index: 1;
-	background-color: white;
-	border-radius: 0 0 4px 4px;
-	align-items: center;
-	position: sticky;
-	width: 100%;
-	max-width: 1000px;
-	margin: 0 auto;
-`
-
-const Logo = styled.a`
-	display: flex;
-	align-items: center;
-	margin: 20px;
-	text-decoration: none;
-`
-
-const Title = styled.h1`
-	font-weight: bold;
-	margin-left: 5px;
-	font-size: 20px;
-	color: var(--accent-color);
-`
-
-const CartButton = styled.button`
-	background-color: transparent;
-	background-image: url(${cartIcon});
-	background-position: center;
-	background-repeat: no-repeat;
-	height: 36px;
-	width: 28px;
-	border: none;
-	margin: 0 20px 0 auto;
 `
 
 const Footer = styled.footer`
@@ -81,17 +41,15 @@ const Link = styled.a`
 	margin: 0 auto;
 `
 
+function toggleCart(){
+
+}
+
 ReactDOM.render(
 		<React.StrictMode>
 			<GlobalStyle/>
 			<Provider store={createStore()}>
-				<Header>
-					<Logo href='#'>
-						<img src={bookIcon} alt=''/>
-						<Title>Bookstore</Title>
-					</Logo>
-					<CartButton/>
-				</Header>
+				<Header/>
 				<BooksPage/>
 				<Footer>
 					<Link href='https://infret.github.io'><i>by Infret</i></Link>

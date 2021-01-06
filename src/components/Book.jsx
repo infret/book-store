@@ -5,6 +5,7 @@ const Card = styled.li`
 	margin-top: 10px;
 	box-shadow: var(--low-elevation);
 	border-radius: 4px;
+
 	&:hover {
 		box-shadow: var(--high-elevation);
 	}
@@ -16,7 +17,7 @@ const Preview = styled.img`
 	height: 250px;
 	margin: 0 auto;
 	border-radius: 4px 4px 0 0;
-	@media (max-width: 360px){
+	@media (max-width: 360px) {
 		width: 100%;
 		height: auto;
 		border-radius: 10px 10px 0 0;
@@ -65,16 +66,14 @@ const Button = styled.button`
 	height: 37px;
 `
 
-export default function BookCard({image, title, author, price, isInCart}){
-	return (
-			<Card>
-				<Preview src={image} alt=''/>
-				<Title>{title}</Title>
-				<Author>{author}</Author>
-				<Container>
+export const Book = ({image, title, author, price, buyBook, cartAmount}) => (
+		<Card>
+			<Preview src={image} alt=''/>
+			<Title>{title}</Title>
+			<Author>{author}</Author>
+			<Container>
 				<Price>${price}</Price>
-				<Button>To cart</Button>
-				</Container>
-			</Card>
-	)
-}
+				<Button onClick={buyBook}>To cart</Button>
+			</Container>
+		</Card>
+)

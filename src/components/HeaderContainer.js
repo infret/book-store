@@ -1,14 +1,14 @@
 import {connect} from 'react-redux'
-import * as cartActions from '../actions/cart'
-import BooksFilter from './BooksFilter'
+import * as actions from '../actions'
 import {bindActionCreators} from 'redux'
+import Header from './Header'
 
 const mapStateToProps = ({cart}) => ({
 	total: cart.items.reduce((total, book) => total + book.price, 0)
 })
 
 const mapDispatchToProps = dispatch => ({
-	...bindActionCreators(booksActions, dispatch)
+	...bindActionCreators(actions, dispatch)
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(BooksFilter)
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

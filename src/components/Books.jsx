@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
-import BookCard from './BookCard'
+import {Book} from './Book'
 import SortField from './FilterContainer'
 
 const Body = styled.div`
@@ -11,7 +11,7 @@ const Body = styled.div`
 	min-height: 100vh;
 `
 
-const Books = styled.ul`
+const StyledUl = styled.ul`
 	display: grid;
 	grid-template-columns: repeat(auto-fill, 180px);
 	list-style-type: none;
@@ -48,7 +48,7 @@ const Loading = styled.div`
 	}
 `
 
-export default function BooksPage(props) {
+export default function Books(props) {
 	const {books, isReady, setBooks} = props
 
 	useEffect(() => {
@@ -60,9 +60,9 @@ export default function BooksPage(props) {
 	return (
 			<Body>
 				<SortField/>
-				<Books>
-					{isReady ? books.map((book,i) => <BookCard key={i} {...book}/>) : <Loading/>}
-				</Books>
+				<StyledUl>
+					{isReady ? books.map((book,i) => <Book key={i} {...book}/>) : <Loading/>}
+				</StyledUl>
 			</Body>
 	)
 }
