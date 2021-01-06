@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
-import {Book} from './Book'
+import Book from './BookContainer'
 import SortField from './FilterContainer'
 
 const Body = styled.div`
@@ -13,6 +13,7 @@ const Body = styled.div`
 
 const StyledUl = styled.ul`
 	display: grid;
+	grid-gap: 5px;
 	grid-template-columns: repeat(auto-fill, 180px);
 	list-style-type: none;
 	justify-content: space-evenly;

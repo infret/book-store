@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styled, {createGlobalStyle} from 'styled-components'
+import {createGlobalStyle} from 'styled-components'
 import createStore from './store'
 import {Provider} from 'react-redux'
-import BooksPage from './components/BooksContainer'
+import Books from './components/BooksContainer'
 import Header from './components/HeaderContainer'
+import {Footer} from './components/Footer'
+import Cart from './components/CartContainer'
+import {BrowserRouter, Route} from 'react-router-dom'
 
 const GlobalStyle = createGlobalStyle`
 	* {
@@ -19,41 +22,16 @@ const GlobalStyle = createGlobalStyle`
 	}
 `
 
-const Footer = styled.footer`
-	box-shadow: var(--low-elevation);
-	height: 60px;
-	display: flex;
-	background-color: white;
-	border-radius: 4px 4px 0 0;
-	align-items: center;
-	width: 100%;
-	max-width: 1000px;
-	margin-top: 20px;
-	position: relative;
-	bottom: 0;
-`
-
-const Link = styled.a`
-	display: block;
-	text-transform: lowercase;
-	font-family: serif;
-	color: grey;
-	margin: 0 auto;
-`
-
-function toggleCart(){
-
-}
-
 ReactDOM.render(
 		<React.StrictMode>
 			<GlobalStyle/>
 			<Provider store={createStore()}>
-				<Header/>
-				<BooksPage/>
-				<Footer>
-					<Link href='https://infret.github.io'><i>by Infret</i></Link>
-				</Footer>
+				<BrowserRouter>
+					<Header/>
+					<Route path='/cart' component={Cart}/>
+					<Route path='/books' component={Books}/>
+					<Footer/>
+				</BrowserRouter>
 			</Provider>
 		</React.StrictMode>,
 		document.getElementById('root'),

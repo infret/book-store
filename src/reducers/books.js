@@ -7,7 +7,7 @@ const initialState = {
 
 export default function booksReducer(state = initialState, action){
 	switch (action.type) {
-		case 'SET_BOOKS':
+		case 'SHOW_BOOKS':
 			return {
 				...state,
 				items: action.payload,

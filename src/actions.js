@@ -1,14 +1,5 @@
-export const setBooks = (books) => ({
-	type: 'SET_BOOKS',
-	payload: books
-})
-
-export  const  sortBooks = (sortBy) => ({
-	type: 'SORT_BOOKS',
-	payload: sortBy
-})
-
-export const filterBooks = filterBy => ({
-	type: 'FILTER_BOOKS',
-	payload: filterBy
-})
+export const setBooks = (books) => ({type: 'SHOW_BOOKS', payload: books})
+export const sortBooks = (sortBy) => ({type: 'SORT_BOOKS', payload: sortBy})
+export const filterBooks = filterBy => ({type: 'FILTER_BOOKS', payload: filterBy})
+export const addToCart = item => ({type: 'ADD_TO_CART', payload: item})
+export const removeFromCart = id => ({type: 'REMOVE_FROM_CART', payload: id})

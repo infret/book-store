@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {addToCart} from '../actions'
 
 const Card = styled.li`
 	width: 180px;
@@ -59,21 +60,21 @@ const Button = styled.button`
 	color: white;
 	border: none;
 	border-radius: 4px;
-	padding: 10px 15px;
+	padding: 10px;
 	margin: 10px;
 	cursor: pointer;
 	font-size: 15px;
 	height: 37px;
 `
 
-export const Book = ({image, title, author, price, buyBook, cartAmount}) => (
+export const Book = book => (
 		<Card>
-			<Preview src={image} alt=''/>
-			<Title>{title}</Title>
-			<Author>{author}</Author>
+			<Preview src={book.image} alt=''/>
+			<Title>{book.title}</Title>
+			<Author>{book.author}</Author>
 			<Container>
-				<Price>${price}</Price>
-				<Button onClick={buyBook}>To cart</Button>
+				<Price>${book.price}</Price>
+				<Button onClick={book.addToCart.bind(this, book)}>Add to cart</Button>
 			</Container>
 		</Card>
 )

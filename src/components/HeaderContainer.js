@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux'
 import Header from './Header'
 
 const mapStateToProps = ({cart}) => ({
-	total: cart.items.reduce((total, book) => total + book.price, 0)
+	count: cart.items.length,
 })
 
 const mapDispatchToProps = dispatch => ({
