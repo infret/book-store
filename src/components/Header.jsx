@@ -2,7 +2,7 @@ import React from 'react'
 import bookIcon from '../resources/book.svg'
 import cartIcon from '../resources/cart.svg'
 import styled from 'styled-components'
-import {NavLink} from 'react-router-dom'
+import Cart from './CartContainer'
 
 const Body = styled.header`
 	box-shadow: var(--low-elevation);
@@ -33,7 +33,8 @@ const Title = styled.h1`
 	color: var(--accent-color);
 `
 
-const StyledLink = styled(NavLink)`
+const CartButton = styled.button`
+	background-color: transparent;
 	background-image: url(${cartIcon});
 	background-position: center;
 	background-repeat: no-repeat;
@@ -52,7 +53,7 @@ const CartDot = styled.div`
 	color: white;
 	font-weight: bold;
 	border-radius: 50%;
-	background-color: #e7493d;
+	background-color: var(--danger-color);
 	position: absolute;
 	top: 0;
 	right: -2px;
@@ -65,9 +66,10 @@ export default function Header({count}) {
 					<img src={bookIcon} alt=''/>
 					<Title>Bookstore</Title>
 				</Logo>
-				<StyledLink to='/cart'>
+				<CartButton>
 					{(count > 0) && <CartDot>{count}</CartDot>}
-				</StyledLink>
+				</CartButton>
+					<Cart/>
 			</Body>
 	)
 }

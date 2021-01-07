@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import {addToCart} from '../actions'
 
 const Card = styled.li`
 	width: 180px;
