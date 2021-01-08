@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.js": "/online-store/static/js/main.25b606a7.chunk.js",
-    "main.js.map": "/online-store/static/js/main.25b606a7.chunk.js.map",
+    "main.js": "/online-store/static/js/main.c8c50c0a.chunk.js",
+    "main.js.map": "/online-store/static/js/main.c8c50c0a.chunk.js.map",
     "runtime-main.js": "/online-store/static/js/runtime-main.d8a1b7d0.js",
     "runtime-main.js.map": "/online-store/static/js/runtime-main.d8a1b7d0.js.map",
-    "static/js/2.b3c5d98d.chunk.js": "/online-store/static/js/2.b3c5d98d.chunk.js",
-    "static/js/2.b3c5d98d.chunk.js.map": "/online-store/static/js/2.b3c5d98d.chunk.js.map",
+    "static/js/2.160c646a.chunk.js": "/online-store/static/js/2.160c646a.chunk.js",
+    "static/js/2.160c646a.chunk.js.map": "/online-store/static/js/2.160c646a.chunk.js.map",
     "index.html": "/online-store/index.html",
-    "static/js/2.b3c5d98d.chunk.js.LICENSE.txt": "/online-store/static/js/2.b3c5d98d.chunk.js.LICENSE.txt",
+    "static/js/2.160c646a.chunk.js.LICENSE.txt": "/online-store/static/js/2.160c646a.chunk.js.LICENSE.txt",
     "static/media/book.60b02366.svg": "/online-store/static/media/book.60b02366.svg",
-    "static/media/cart.c058d20a.svg": "/online-store/static/media/cart.c058d20a.svg"
+    "static/media/cart.c058d20a.svg": "/online-store/static/media/cart.c058d20a.svg",
+    "static/media/close.2548618f.svg": "/online-store/static/media/close.2548618f.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.d8a1b7d0.js",
-    "static/js/2.b3c5d98d.chunk.js",
-    "static/js/main.25b606a7.chunk.js"
+    "static/js/2.160c646a.chunk.js",
+    "static/js/main.c8c50c0a.chunk.js"
   ]
 }
