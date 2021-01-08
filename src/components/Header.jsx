@@ -60,17 +60,17 @@ const CartDot = styled.div`
 	right: -2px;
 `
 
-export default function Header({count}) {
+export default function Header({count, isShown, showCart}) {
 	return (
 			<Body>
 				<Logo href='#'>
 					<img src={bookIcon} alt=''/>
 					<Title>Bookstore</Title>
 				</Logo>
-				<CartButton>
+				<CartButton onClick={showCart}>
 					{(count > 0) && <CartDot>{count}</CartDot>}
 				</CartButton>
-				<Cart/>
+				{isShown && <Cart/>}
 			</Body>
 	)
 }

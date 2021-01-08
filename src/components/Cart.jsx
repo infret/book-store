@@ -32,23 +32,27 @@ const CloseButton = styled.button`
 `
 
 const CartItem = styled.div`
-	display: flex;
+	display: grid;
 	width: 100%;
-	min-height: 50px;
 	align-items: center;
+	grid-template-rows: 80px;
+	grid-template-columns: 70px 1fr 30px 100px;
+	grid-template-areas: 'img desc count btn';
 `
 
 const ItemPreview = styled.img`
 	height: 70px;
 	width: auto;
-	margin: 10px;
+	margin: 5px 10px;
+	grid-area: img;
 `
 
 const ItemDesc = styled.div`
 	display: flex;
 	flex-direction: column;
-	width: 60%;
-	min-width: 200px;
+	width: 100%;
+	min-width: 150px;
+	grid-area: desc;
 `
 
 const Title = styled.h3`
@@ -83,10 +87,11 @@ const CheckoutContainer = styled.div`
 	align-items: center;
 `
 
-const Total = styled.p`
+const CartText = styled.p`
 	margin: 10px;
+	min-width: 20px;
 	font-weight: bold;
-	font-size: 20px;
+	font-size: 18px;
 	color: var(--accent-color);
 `
 
@@ -102,14 +107,14 @@ const CheckoutButton = styled(NavLink)`
 
 const CartHeading = styled.p`
 	color: var(--accent-color);
-	margin-left: 10px;
 	font-size: 20px;
+	margin-left: 10px;
 	font-weight: bold;
 	display: inline;
 	line-height: 60px;
 `
 
-export const Cart = ({total, count, items, removeFromCart}) => (
+export const Cart = ({total, count, items, removeFromCart, hideCart}) => (
 		<Body>
 			<CartHeading>Cart</CartHeading>
 			{count ?
@@ -121,16 +126,17 @@ export const Cart = ({total, count, items, removeFromCart}) => (
 									<Title>{item.title}</Title>
 									<Author>{item.author}</Author>
 								</ItemDesc>
+								<CartText>{item.count}</CartText>
 								<ItemButton onClick={removeFromCart.bind(this, item.id)}>Remove</ItemButton>
 							</CartItem>
 						))}
 						<CheckoutContainer>
-							<Total>Total: {count} book{count !== 1 && 's'} worth ${total}</Total>
+							<CartText>Total: {count} book{count !== 1 && 's'} worth ${total}</CartText>
 							<CheckoutButton to='/checkout'>Checkout</CheckoutButton>
 						</CheckoutContainer>
 					</div>
 					: <CartHeading>is empty</CartHeading>
 			}
-			<CloseButton/>
+			<CloseButton onClick={hideCart}/>
 		</Body>
 )

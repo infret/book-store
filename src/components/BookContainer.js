@@ -3,10 +3,7 @@ import * as actions from '../actions'
 import {Book} from './Book'
 import {bindActionCreators} from 'redux'
 
-const mapStateToProps = ({cart}, { id }) => ({
-	showCount: cart.items.reduce(
-			(count,book) => count + (book.id === id ? 1 : 0), 0
-	)
+const mapStateToProps = () => ({
 })
 
 const mapDispatchToProps = dispatch => ({
