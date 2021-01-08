@@ -43,6 +43,7 @@ const CartButton = styled.button`
 	border: none;
 	margin: 0 20px 0 auto;
 	position: relative;
+	cursor: pointer;
 `
 
 const CartDot = styled.div`
@@ -69,7 +70,7 @@ export default function Header({count}) {
 				<CartButton>
 					{(count > 0) && <CartDot>{count}</CartDot>}
 				</CartButton>
-					<Cart/>
+				<Cart/>
 			</Body>
 	)
 }

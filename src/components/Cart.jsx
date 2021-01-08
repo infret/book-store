@@ -1,17 +1,34 @@
 import React from 'react'
 import styled from 'styled-components'
 import {NavLink} from 'react-router-dom'
+import closeIcon from '../resources/close.svg'
 
 const Body = styled.div`
 	position: absolute;
 	top: 0;
 	right: 0;
-	width: 100%;
-	max-width: 500px;
+	width: 50%;
+	min-height: 60px;
+	min-width: 360px;
 	background-color: white;
 	border-radius: 0 0 4px 4px;
 	box-shadow: var(--low-elevation);
+`
 
+const CloseButton = styled.button`
+	background-color: transparent;
+	background-image: url(${closeIcon});
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 60px;
+	width: 28px;
+	border: none;
+	margin: 0 20px;
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: inline;
 `
 
 const CartItem = styled.div`
@@ -30,6 +47,8 @@ const ItemPreview = styled.img`
 const ItemDesc = styled.div`
 	display: flex;
 	flex-direction: column;
+	width: 60%;
+	min-width: 200px;
 `
 
 const Title = styled.h3`
@@ -46,7 +65,6 @@ const Author = styled.p`
 	text-overflow: ellipsis;
 	white-space: nowrap;
 `
-
 
 const ItemButton = styled.button`
 	background-color: var(--danger-color);
@@ -82,16 +100,18 @@ const CheckoutButton = styled(NavLink)`
 	margin: 10px 10px 10px auto;
 `
 
-const Placeholder = styled.p`
+const CartHeading = styled.p`
 	color: var(--accent-color);
-	display: block;
-	margin: auto;
+	margin-left: 10px;
 	font-size: 20px;
 	font-weight: bold;
+	display: inline;
+	line-height: 60px;
 `
 
 export const Cart = ({total, count, items, removeFromCart}) => (
 		<Body>
+			<CartHeading>Cart</CartHeading>
 			{count ?
 					<div>
 						{items.map(item => (
@@ -105,11 +125,12 @@ export const Cart = ({total, count, items, removeFromCart}) => (
 							</CartItem>
 						))}
 						<CheckoutContainer>
-							<Total>Total: {count} {count === 1 ? 'book' : 'books'} worth ${total}</Total>
+							<Total>Total: {count} book{count !== 1 && 's'} worth ${total}</Total>
 							<CheckoutButton to='/checkout'>Checkout</CheckoutButton>
 						</CheckoutContainer>
 					</div>
-					: <Placeholder>Cart is empty</Placeholder>
+					: <CartHeading>is empty</CartHeading>
 			}
+			<CloseButton/>
 		</Body>
 )

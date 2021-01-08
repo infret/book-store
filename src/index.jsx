@@ -6,7 +6,7 @@ import {Provider} from 'react-redux'
 import Books from './components/BooksContainer'
 import Header from './components/HeaderContainer'
 import {Footer} from './components/Footer'
-import {BrowserRouter, Route} from 'react-router-dom'
+import {BrowserRouter} from 'react-router-dom'
 
 const GlobalStyle = createGlobalStyle`
 	* {

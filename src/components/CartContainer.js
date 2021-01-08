@@ -4,8 +4,8 @@ import {bindActionCreators} from 'redux'
 import {Cart} from './Cart'
 
 const mapStateToProps = ({cart}) => ({
-	total: cart.items.reduce((total, book) => total + book.price, 0),
-	items: cart.items,
+	total: cart.items.reduce((total, book) => total + book.price, 0).toFixed(1),
+	items: cart.items.filter((item, i, filteredItems) => filteredItems.indexOf(item) === i),
 	count: cart.items.length,
 })
 
