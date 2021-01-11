@@ -2,31 +2,30 @@ import {connect} from 'react-redux'
 import * as actions from '../actions'
 import Books from './Books'
 import {bindActionCreators} from 'redux'
-import orderBy from 'lodash/orderBy'
 
 const sortBy = (books, sortBy, filterBy) => {
 	books = books.filter(object =>
-			object.title.toLowerCase().indexOf(filterBy.toLowerCase()) >=0 || object.author.toLowerCase().indexOf(filterBy.toLowerCase()) >=0
+			object.title.toLowerCase().indexOf(filterBy.toLowerCase()) >= 0 || object.author.toLowerCase().indexOf(filterBy.toLowerCase()) >= 0,
 	)
 	switch (sortBy) {
 		case 'price':
-			return orderBy(books, 'price', 'asc')
+			return books.sort((a, b) => (a.price - b.price))
 		case 'title':
-			return orderBy(books, 'title', 'asc')
+			return books.sort((a, b) => (a.title.localeCompare(b.title)))
 		case 'author':
-			return orderBy(books, 'author', 'asc')
+			return books.sort((a, b) => (a.author.localeCompare(b.author)))
 		default:
-			return orderBy(books, 'rating', 'desc')
+			return books.sort((a, b) => (b.rating - a.rating))
 	}
 }
 
 const mapStateToProps = ({books}) => ({
 	books: books.items ? sortBy(books.items, books.sortBy, books.filterBy) : null,
-	isReady: books.isReady
+	isReady: books.isReady,
 })
 
 const mapDispatchToProps = dispatch => ({
-	...bindActionCreators(actions, dispatch)
+	...bindActionCreators(actions, dispatch),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Books)

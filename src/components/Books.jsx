@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react'
 import styled from 'styled-components'
-import axios from 'axios'
 import Book from './BookContainer'
 import SortField from './FilterContainer'
 
@@ -33,13 +32,13 @@ const Loading = styled.div`
 	border-bottom: 5px solid gainsboro;
 	border-left: 5px solid var(--accent-color);
 	animation: loading 1s infinite linear;
-	
+
 	&:after {
 		border-radius: 50%;
 		width: 50px;
 		height: 50px;
 	}
-	
+
 	@keyframes loading {
 		0% {
 			transform: rotate(0deg);
@@ -76,8 +75,10 @@ const Placeholder = styled.p`
 export default function Books({books, isReady, showBooks}) {
 
 	useEffect(() => {
-		axios.get('http://localhost:3000/online-store/books.json').then(response => {
-			showBooks(response.data)
+		fetch('https://cors-anywhere.herokuapp.com/https://infret.github.io/online-store/books.json', {
+			method: 'GET',
+		}).then(res => res.json()).then(data => {
+			showBooks(data)
 		})
 	}, [showBooks])
 
@@ -86,10 +87,10 @@ export default function Books({books, isReady, showBooks}) {
 				<SortField/>
 				{isReady ?
 						<div>
-						<StyledUl>
-							{books.map((book,i) => <Book key={i} {...book}/>)}
-							{books.length === 0 && <Placeholder>Nothing found</Placeholder>}
-						</StyledUl>
+							<StyledUl>
+								{books.map((book, i) => <Book key={i} {...book}/>)}
+								{books.length === 0 && <Placeholder>Nothing found</Placeholder>}
+							</StyledUl>
 							<MoreButton>Browse more books</MoreButton>
 						</div> :
 						<Loading/>

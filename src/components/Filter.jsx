@@ -50,7 +50,6 @@ const Filter = ({sortBooks, sortBy, filterBooks, filterBy}) => (
 				<option disabled value='placeholder'>Sort by</option>
 				<option value='rating'>Rating</option>
 				<option value='price'>Price</option>
-				<option value='newness'>Newness</option>
 				<option value='title'>Title</option>
 				<option value='author'>Author</option>
 			</Select>
