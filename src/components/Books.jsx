@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react'
 import styled from 'styled-components'
-import axios from 'axios'
 import Book from './BookContainer'
 import SortField from './FilterContainer'
 
@@ -52,10 +51,12 @@ const Loading = styled.div`
 export default function Books(props) {
 	const {books, isReady, setBooks} = props
 
-	useEffect(() => {
-		axios.get('https://infret.github.io/online-store/books.json').then(response => {
-			setBooks(response.data)
-		})
+        useEffect(() => {
+		fetch('https://cors-anywhere.herokuapp.com/https://infret.github.io/online-store/books.json', {
+			method: 'GET',
+		}).then(res => {
+                        setBooks(res.data)
+                })
 	}, [setBooks])
 
 	return (
