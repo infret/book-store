@@ -18,7 +18,7 @@ const Select = styled.select`
 	line-height: 1;
 	border-radius: 4px;
 	margin: 8px;
-	padding: 5px 3px;
+	padding: 6px;
 
 	& > option:first-child {
 		display: none;
@@ -31,12 +31,17 @@ const Searchbar = styled.input`
 	border: 2px solid var(--accent-color);
 	outline: none;
 	height: 36px;
-	width: 180px;
+	width: 40%;
+	max-width: 180px;
 	font-size: 16px;
 	line-height: 1;
 	border-radius: 4px;
 	margin: 8px;
-	padding: 5px 6px;
+	padding: 6px;
+	
+	::placeholder {
+		opacity: 1;
+	}
 `
 
 const Filter = ({sortBooks, sortBy, filterBooks, filterBy}) => (

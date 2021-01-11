@@ -10,7 +10,7 @@ const Body = styled.footer`
 	align-items: center;
 	width: 100%;
 	max-width: 1000px;
-	margin-top: 20px;
+	margin: 20px auto 0 auto;
 	position: relative;
 	bottom: 0;
 `

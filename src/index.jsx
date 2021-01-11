@@ -29,8 +29,6 @@ ReactDOM.render(
 				<BrowserRouter>
 					<Header/>
 					<Books/>
-					{/*<Route path='/cart' component={Cart}/>*/}
-					{/*<Route path='/books' component={Books}/>*/}
 					<Footer/>
 				</BrowserRouter>
 			</Provider>

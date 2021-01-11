@@ -1,5 +1,5 @@
 import {connect} from 'react-redux'
-import * as booksActions from '../actions'
+import * as actions from '../actions'
 import Books from './Books'
 import {bindActionCreators} from 'redux'
 import orderBy from 'lodash/orderBy'
@@ -26,7 +26,7 @@ const mapStateToProps = ({books}) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-	...bindActionCreators(booksActions, dispatch)
+	...bindActionCreators(actions, dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Books)

@@ -7,9 +7,9 @@ const Body = styled.div`
 	position: absolute;
 	top: 0;
 	right: 0;
-	width: 50%;
+	width: 100%;
 	min-height: 60px;
-	min-width: 360px;
+	max-width: 400px;
 	background-color: white;
 	border-radius: 0 0 4px 4px;
 	box-shadow: var(--low-elevation);

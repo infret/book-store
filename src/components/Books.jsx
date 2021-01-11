@@ -6,6 +6,7 @@ import SortField from './FilterContainer'
 
 const Body = styled.div`
 	width: 100%;
+	height: 100%;
 	margin: 0 auto;
 	max-width: 1000px;
 	min-height: 100vh;
@@ -49,21 +50,50 @@ const Loading = styled.div`
 	}
 `
 
-export default function Books(props) {
-	const {books, isReady, setBooks} = props
+const MoreButton = styled.a`
+	background-color: var(--accent-color);
+	color: white;
+	border: none;
+	display: block;
+	border-radius: 4px;
+	padding: 10px;
+	font-size: 18px;
+	width: 250px;
+	text-align: center;
+	margin: 20px auto;
+`
+
+const Placeholder = styled.p`
+	height: 30px;
+	width: 130px;
+	display: block;
+	font-weight: bold;
+	color: var(--accent-color);
+	margin: 100px auto;
+	font-size: 18px;
+`
+
+export default function Books({books, isReady, showBooks}) {
 
 	useEffect(() => {
-		axios.get('https://infret.github.io/online-store/books.json').then(response => {
-			setBooks(response.data)
+		axios.get('http://localhost:3000/online-store/books.json').then(response => {
+			showBooks(response.data)
 		})
-	}, [setBooks])
+	}, [showBooks])
 
 	return (
 			<Body>
 				<SortField/>
-				<StyledUl>
-					{isReady ? books.map((book,i) => <Book key={i} {...book}/>) : <Loading/>}
-				</StyledUl>
+				{isReady ?
+						<div>
+						<StyledUl>
+							{books.map((book,i) => <Book key={i} {...book}/>)}
+							{books.length === 0 && <Placeholder>Nothing found</Placeholder>}
+						</StyledUl>
+							<MoreButton>Browse more books</MoreButton>
+						</div> :
+						<Loading/>
+				}
 			</Body>
 	)
 }
