@@ -14,8 +14,7 @@ function countItems(array, key) {
 const mapStateToProps = ({cart}) => ({
 	total: cart.items.reduce((total, item) => total + item.price, 0).toFixed(1),
 	items: countItems(cart.items, 'id'),
-	count: cart.items.length,
-	hideCart: cart.isShown = false,
+	count: cart.items.length
 })
 
 const mapDispatchToProps = dispatch => ({

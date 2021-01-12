@@ -20,7 +20,6 @@ const Preview = styled.img`
 	@media (max-width: 360px) {
 		width: 100%;
 		height: auto;
-		border-radius: 10px 10px 0 0;
 	}
 `
 
@@ -63,7 +62,6 @@ const Button = styled.button`
 	margin: 10px;
 	cursor: pointer;
 	font-size: 15px;
-	height: 37px;
 `
 
 export const Book = book => (

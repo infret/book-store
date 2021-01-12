@@ -4,9 +4,7 @@ import Books from './Books'
 import {bindActionCreators} from 'redux'
 
 const sortBy = (books, sortBy, filterBy) => {
-	books = books.filter(object =>
-			object.title.toLowerCase().indexOf(filterBy.toLowerCase()) >= 0 || object.author.toLowerCase().indexOf(filterBy.toLowerCase()) >= 0,
-	)
+	books = books.filter(object => object.title.toLowerCase().indexOf(filterBy.toLowerCase()) >= 0 || object.author.toLowerCase().indexOf(filterBy.toLowerCase()) >= 0,)
 	switch (sortBy) {
 		case 'price':
 			return books.sort((a, b) => (a.price - b.price))

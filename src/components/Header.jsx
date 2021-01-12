@@ -34,7 +34,7 @@ const Title = styled.h1`
 `
 
 const CartButton = styled.button`
-	background-color: transparent;
+	background-color: white;
 	background-image: url(${cartIcon});
 	background-position: center;
 	background-repeat: no-repeat;
@@ -60,14 +60,14 @@ const CartDot = styled.div`
 	right: -2px;
 `
 
-export default function Header({count, isShown, showCart}) {
+export default function Header({count, isShown, toggleCart}) {
 	return (
 			<Body>
 				<Logo href='#'>
 					<img src={bookIcon} alt=''/>
 					<Title>Bookstore</Title>
 				</Logo>
-				<CartButton onClick={showCart}>
+				<CartButton onClick={toggleCart}>
 					{(count > 0) && <CartDot>{count}</CartDot>}
 				</CartButton>
 				{isShown && <Cart/>}

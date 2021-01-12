@@ -1,6 +1,6 @@
 const initialState = {
 	items: [],
-	isCartShown: false
+	isShown: false
 }
 
 export default function cartReducer(state = initialState, action) {
@@ -17,16 +17,16 @@ export default function cartReducer(state = initialState, action) {
 				items: state.items.filter(i => i.id !== action.payload),
 				isShown: true
 			}
-		case 'SHOW_CART':
+		case 'TOGGLE_CART':
 			return {
 				...state,
-				isShown: true
+				isShown: action.payload
 			}
-		case 'HIDE_CART':
-			return {
-				...state,
-				isShown: false
-			}
+		// case 'HIDE_CART':
+		// 	return {
+		// 		...state,
+		// 		isShown: false
+		// 	}
 		default:
 			return state
 	}

@@ -3,8 +3,7 @@ import * as actions from '../actions'
 import {Book} from './Book'
 import {bindActionCreators} from 'redux'
 
-const mapStateToProps = () => ({
-})
+const mapStateToProps = () => ({})
 
 const mapDispatchToProps = dispatch => ({
 	...bindActionCreators(actions, dispatch)

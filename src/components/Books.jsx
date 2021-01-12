@@ -27,9 +27,7 @@ const Loading = styled.div`
 	position: absolute;
 	top: 30vh;
 	left: calc(50% - 27px);
-	border-top: 5px solid gainsboro;
-	border-right: 5px solid gainsboro;
-	border-bottom: 5px solid gainsboro;
+	border: 5px solid gainsboro;
 	border-left: 5px solid var(--accent-color);
 	animation: loading 1s infinite linear;
 
@@ -75,7 +73,7 @@ const Placeholder = styled.p`
 export default function Books({books, isReady, showBooks}) {
 
 	useEffect(() => {
-		fetch('https://cors-anywhere.herokuapp.com/https://infret.github.io/online-store/books.json', {
+		fetch('https://cors-anywhere.herokuapp.com/https://infret.github.io/book-store/books.json', {
 			method: 'GET',
 		}).then(res => res.json()).then(data => {
 			showBooks(data)

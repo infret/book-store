@@ -6,7 +6,6 @@ import Header from './Header'
 const mapStateToProps = ({cart}) => ({
 	count: cart.items.length,
 	isShown: cart.isShown,
-	showCart: cart.isShown = true
 })
 
 const mapDispatchToProps = dispatch => ({

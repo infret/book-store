@@ -16,7 +16,7 @@ const Body = styled.div`
 `
 
 const CloseButton = styled.button`
-	background-color: transparent;
+	background-color: white;
 	background-image: url(${closeIcon});
 	background-position: center;
 	background-repeat: no-repeat;
@@ -36,7 +36,7 @@ const CartItem = styled.div`
 	width: 100%;
 	align-items: center;
 	grid-template-rows: 80px;
-	grid-template-columns: 70px 1fr 30px 100px;
+	grid-template-columns: 70px 1fr 20px 100px;
 	grid-template-areas: 'img desc count btn';
 `
 
@@ -114,7 +114,7 @@ const CartHeading = styled.p`
 	line-height: 60px;
 `
 
-export const Cart = ({total, count, items, removeFromCart, hideCart}) => (
+export const Cart = ({total, count, items, removeFromCart, toggleCart}) => (
 		<Body>
 			<CartHeading>Cart</CartHeading>
 			{count ?
@@ -137,6 +137,6 @@ export const Cart = ({total, count, items, removeFromCart, hideCart}) => (
 					</div>
 					: <CartHeading>is empty</CartHeading>
 			}
-			<CloseButton onClick={hideCart}/>
+			<CloseButton onClick={toggleCart.bind(this, false)}/>
 		</Body>
 )

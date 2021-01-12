@@ -13,12 +13,14 @@ const Select = styled.select`
 	border: 2px solid var(--accent-color);
 	outline: none;
 	height: 36px;
-	width: 180px;
+	width: 40%;
+	max-width: 180px;
 	font-size: 16px;
 	line-height: 1;
 	border-radius: 4px;
 	margin: 8px;
 	padding: 6px;
+	opacity: 1;
 
 	& > option:first-child {
 		display: none;
