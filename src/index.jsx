@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {createGlobalStyle} from 'styled-components'
-import createStore from './store'
 import {Provider} from 'react-redux'
 import Books from './components/BooksContainer'
 import Header from './components/HeaderContainer'
 import {Footer} from './components/Footer'
 import {BrowserRouter} from 'react-router-dom'
+import reducer from './reducer'
+import {applyMiddleware, createStore} from 'redux'
+import logger from 'redux-logger'
 
 const GlobalStyle = createGlobalStyle`
 	* {
@@ -25,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
 ReactDOM.render(
 		<React.StrictMode>
 			<GlobalStyle/>
-			<Provider store={createStore()}>
+			<Provider store={createStore(reducer, applyMiddleware(logger))}>
 				<BrowserRouter>
 					<Header/>
 					<Books/>
