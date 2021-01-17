@@ -4,7 +4,7 @@ import Books from './Books'
 import {bindActionCreators} from 'redux'
 
 const sortBy = (books, sortBy, filterBy) => {
-	books = books.filter(object => object.title.toLowerCase().indexOf(filterBy.toLowerCase()) >= 0 || object.author.toLowerCase().indexOf(filterBy.toLowerCase()) >= 0,)
+	books = books.filter(object => object.title.toLowerCase().indexOf(filterBy.toLowerCase()) >= 0 || object.author.toLowerCase().indexOf(filterBy.toLowerCase()) >= 0)
 	switch (sortBy) {
 		case 'price':
 			return books.sort((a, b) => (a.price - b.price))
@@ -17,12 +17,12 @@ const sortBy = (books, sortBy, filterBy) => {
 	}
 }
 
-const mapStateToProps = ({books}) => ({
-	books: books.items ? sortBy(books.items, books.sortBy, books.filterBy) : null,
-	isReady: books.isReady,
+const mapStateToProps = (state) => ({
+	books: state.items ? sortBy(state.items, state.sortBy, state.filterBy) : null,
+	isReady: state.isReady,
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
 	...bindActionCreators(actions, dispatch),
 })
 

@@ -60,18 +60,18 @@ const Button = styled.button`
 	border-radius: 4px;
 	padding: 10px;
 	margin: 10px;
-	cursor: pointer;
 	font-size: 15px;
 `
 
-export const Book = book => (
+const BookCard = book => (
 		<Card>
 			<Preview src={book.image} alt=''/>
 			<Title>{book.title}</Title>
 			<Author>{book.author}</Author>
 			<Container>
 				<Price>${book.price}</Price>
-				<Button onClick={book.addToCart.bind(this, book)}>Add to cart</Button>
+				<Button onClick={book.addToCart.bind(this, book.id)}>Add to cart</Button>
 			</Container>
 		</Card>
 )
+export default BookCard

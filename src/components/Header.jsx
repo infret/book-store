@@ -43,7 +43,6 @@ const CartButton = styled.button`
 	border: none;
 	margin: 0 20px 0 auto;
 	position: relative;
-	cursor: pointer;
 `
 
 const CartDot = styled.div`
@@ -60,8 +59,7 @@ const CartDot = styled.div`
 	right: -2px;
 `
 
-export default function Header({count, isShown, toggleCart}) {
-	return (
+const Header = ({count, isCartShown, toggleCart}) => (
 			<Body>
 				<Logo href='#'>
 					<img src={bookIcon} alt=''/>
@@ -70,7 +68,7 @@ export default function Header({count, isShown, toggleCart}) {
 				<CartButton onClick={toggleCart}>
 					{(count > 0) && <CartDot>{count}</CartDot>}
 				</CartButton>
-				{isShown && <Cart/>}
+				{isCartShown && <Cart/>}
 			</Body>
-	)
-}
+)
+export default Header

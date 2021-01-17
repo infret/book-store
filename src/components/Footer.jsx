@@ -23,8 +23,9 @@ const Link = styled.a`
 	margin: 0 auto;
 `
 
-export const Footer = () => (
+const Footer = () => (
 		<Body>
 			<Link href='https://infret.github.io'><i>by Infret</i></Link>
 		</Body>
 )
+export default Footer

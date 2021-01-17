@@ -4,7 +4,7 @@ const initialState = {
 	isReady: false,
 	cartItems: [],
 	sortBy: '',
-	filterBy: ''
+	filterBy: '',
 }
 
 export default function reducer(state = initialState, action) {
@@ -25,27 +25,22 @@ export default function reducer(state = initialState, action) {
 				...state,
 				filterBy: action.payload,
 			}
-		case 'BOOKS_ARE_READY':
-			return {
-				...state,
-				isReady: action.payload,
-			}
 		case 'ADD_TO_CART':
 			return {
 				...state,
-				items: [...state.items, action.payload],
-				isShown: false,
+				cartItems: [...state.cartItems, state.items[action.payload]],
+				isCartShown: false,
 			}
 		case 'REMOVE_FROM_CART':
 			return {
 				...state,
-				items: state.items.filter(i => i.id !== action.payload),
-				isShown: true,
+				cartItems: state.cartItems.filter(item => item.id !== action.payload),
+				isCartShown: true,
 			}
 		case 'TOGGLE_CART':
 			return {
 				...state,
-				isShown: action.payload,
+				isCartShown: action.payload,
 			}
 		default:
 			return state

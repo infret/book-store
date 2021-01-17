@@ -3,11 +3,11 @@ import * as booksActions from '../actions'
 import Filter from './Filter'
 import {bindActionCreators} from 'redux'
 
-const mapStateToProps = ({books}) => ({
-	sortBy: books.sortBy,
+const mapStateToProps = (state) => ({
+	sortBy: state.sortBy,
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
 	...bindActionCreators(booksActions, dispatch)
 })
 

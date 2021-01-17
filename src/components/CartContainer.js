@@ -1,7 +1,7 @@
 import {connect} from 'react-redux'
 import * as actions from '../actions'
 import {bindActionCreators} from 'redux'
-import {Cart} from './Cart'
+import Cart from './Cart'
 
 function countItems(array, key) {
 	const uniqueKeys = Array.from(new Set(array.map((item) => item[key])));
@@ -11,13 +11,13 @@ function countItems(array, key) {
 	});
 }
 
-const mapStateToProps = ({cart}) => ({
-	total: cart.items.reduce((total, item) => total + item.price, 0).toFixed(1),
-	items: countItems(cart.items, 'id'),
-	count: cart.items.length
+const mapStateToProps = (state) => ({
+	cartItems: countItems(state.cartItems, 'id'),
+	total: state.cartItems.reduce((total, item) => total + item.price, 0).toFixed(1),
+	count: state.cartItems.length
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
 	...bindActionCreators(actions, dispatch),
 })
 

@@ -8,7 +8,7 @@ const Body = styled.div`
 	height: 100%;
 	margin: 0 auto;
 	max-width: 1000px;
-	min-height: 100vh;
+	min-height: 90vh;
 `
 
 const StyledUl = styled.ul`

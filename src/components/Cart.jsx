@@ -9,10 +9,16 @@ const Body = styled.div`
 	right: 0;
 	width: 100%;
 	min-height: 60px;
+	max-height: 90vh;
 	max-width: 400px;
 	background-color: white;
 	border-radius: 0 0 4px 4px;
 	box-shadow: var(--low-elevation);
+`
+
+const CartItems = styled.div`
+	overflow-y: auto;
+	max-height: calc(90vh - 120px);
 `
 
 const CloseButton = styled.button`
@@ -24,7 +30,6 @@ const CloseButton = styled.button`
 	width: 28px;
 	border: none;
 	margin: 0 20px;
-	cursor: pointer;
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -77,7 +82,6 @@ const ItemButton = styled.button`
 	border-radius: 4px;
 	padding: 10px;
 	margin: 10px 10px 10px auto;
-	cursor: pointer;
 	font-size: 15px;
 	height: 37px;
 `
@@ -114,12 +118,13 @@ const CartHeading = styled.p`
 	line-height: 60px;
 `
 
-export const Cart = ({total, count, items, removeFromCart, toggleCart}) => (
+const Cart = ({total, count, cartItems, removeFromCart, toggleCart}) => (
 		<Body>
 			<CartHeading>Cart</CartHeading>
 			{count ?
-					<div>
-						{items.map(item => (
+					<>
+					<CartItems>
+						{cartItems.map(item => (
 							<CartItem key={item.id}>
 								<ItemPreview src={item.image}/>
 								<ItemDesc>
@@ -130,13 +135,15 @@ export const Cart = ({total, count, items, removeFromCart, toggleCart}) => (
 								<ItemButton onClick={removeFromCart.bind(this, item.id)}>Remove</ItemButton>
 							</CartItem>
 						))}
-						<CheckoutContainer>
-							<CartText>Total: {count} book{count !== 1 && 's'} worth ${total}</CartText>
-							<CheckoutButton to='/checkout'>Checkout</CheckoutButton>
-						</CheckoutContainer>
-					</div>
+					</CartItems>
+					<CheckoutContainer>
+						<CartText>Total: {count} book{count !== 1 && 's'} worth ${total}</CartText>
+						<CheckoutButton to='/checkout'>Checkout</CheckoutButton>
+					</CheckoutContainer>
+					</>
 					: <CartHeading>is empty</CartHeading>
 			}
 			<CloseButton onClick={toggleCart.bind(this, false)}/>
 		</Body>
 )
+export default Cart
