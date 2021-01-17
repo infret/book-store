@@ -46,7 +46,14 @@ const Searchbar = styled.input`
 	}
 `
 
-const Filter = ({sortBooks, sortBy, filterBooks, filterBy}) => (
+interface Props {
+	sortBy: string
+	sortBooks: (sortBy: string) => void
+	filterBy: string
+	filterBooks: (filterBy: string) => void
+}
+
+const Filter = ({sortBooks, sortBy, filterBooks, filterBy} : Props) => (
 		<Sort>
 			<Select value={sortBy} onChange={e => sortBooks(e.target.value)}>
 				<option disabled value='placeholder'>Sort by</option>

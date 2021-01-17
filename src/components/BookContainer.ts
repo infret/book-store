@@ -1,11 +1,11 @@
 import {connect} from 'react-redux'
 import * as actions from '../actions'
 import BookCard from './BookCard'
-import {bindActionCreators} from 'redux'
+import {bindActionCreators, Dispatch} from 'redux'
 
 const mapStateToProps = () => ({})
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch : Dispatch) => ({
 	...bindActionCreators(actions, dispatch)
 })
 

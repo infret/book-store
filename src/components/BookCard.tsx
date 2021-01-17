@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {Book} from '../types'
 
 const Card = styled.li`
 	width: 180px;
@@ -63,7 +64,7 @@ const Button = styled.button`
 	font-size: 15px;
 `
 
-const BookCard = book => (
+const BookCard = (book: Book) => (
 		<Card>
 			<Preview src={book.image} alt=''/>
 			<Title>{book.title}</Title>

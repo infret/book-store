@@ -14,3 +14,4 @@ yarn-error.log*
 .eslintcache
 /package-lock.json
 .idea
+react-app-env.d.ts

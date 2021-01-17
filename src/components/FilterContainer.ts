@@ -1,13 +1,14 @@
 import {connect} from 'react-redux'
 import * as booksActions from '../actions'
 import Filter from './Filter'
-import {bindActionCreators} from 'redux'
+import {bindActionCreators, Dispatch} from 'redux'
+import {State} from '../types'
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state : State) => ({
 	sortBy: state.sortBy,
 })
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch : Dispatch) => ({
 	...bindActionCreators(booksActions, dispatch)
 })
 

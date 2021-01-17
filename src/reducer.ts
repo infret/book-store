@@ -1,3 +1,5 @@
+import {Action, Book} from './types'
+
 const initialState = {
 	items: [],
 	isCartShown: false,
@@ -7,7 +9,7 @@ const initialState = {
 	filterBy: '',
 }
 
-export default function reducer(state = initialState, action) {
+export default function reducer(state = initialState, action : Action) {
 	switch (action.type) {
 		case 'SHOW_BOOKS':
 			return {
@@ -34,13 +36,13 @@ export default function reducer(state = initialState, action) {
 		case 'REMOVE_FROM_CART':
 			return {
 				...state,
-				cartItems: state.cartItems.filter(item => item.id !== action.payload),
+				cartItems: state.cartItems.filter((item : Book) => item.id !== action.payload),
 				isCartShown: true,
 			}
 		case 'TOGGLE_CART':
 			return {
 				...state,
-				isCartShown: action.payload,
+				isCartShown: !state.isCartShown
 			}
 		default:
 			return state
