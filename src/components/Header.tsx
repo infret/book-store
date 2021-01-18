@@ -3,7 +3,6 @@ import bookIcon from '../resources/book.svg'
 import cartIcon from '../resources/cart.svg'
 import styled from 'styled-components'
 import Cart from './CartContainer'
-import {Action} from '../types'
 
 const Body = styled.header`
 	box-shadow: var(--low-elevation);
@@ -61,8 +60,8 @@ const CartDot = styled.div`
 `
 
 interface Props {
-	count: number,
-	toggleCart: () => void,
+	count: number
+	toggleCart: () => void
 	isCartShown: boolean
 }
 

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import {NavLink} from 'react-router-dom'
 import closeIcon from '../resources/close.svg'
+import { Book } from '../types'
 
 const Body = styled.div`
 	position: absolute;
@@ -118,10 +119,18 @@ const CartHeading = styled.p`
 	line-height: 60px;
 `
 
-const Cart = ({total, count, cartItems, removeFromCart, toggleCart}) => (
+interface Props {
+	total: number
+	cartCount: number
+	cartItems: Book[]
+	removeFromCart : (id: number) => void
+	toggleCart: () => void
+}
+
+const Cart = ({total, cartCount, cartItems, removeFromCart, toggleCart} : Props) => (
 		<Body>
 			<CartHeading>Cart</CartHeading>
-			{count ?
+			{cartCount ?
 					<>
 					<CartItems>
 						{cartItems.map(item => (
@@ -137,13 +146,13 @@ const Cart = ({total, count, cartItems, removeFromCart, toggleCart}) => (
 						))}
 					</CartItems>
 					<CheckoutContainer>
-						<CartText>Total: {count} book{count !== 1 && 's'} worth ${total}</CartText>
+						<CartText>Total: {cartCount} book{cartCount !== 1 && 's'} worth ${total}</CartText>
 						<CheckoutButton to='/checkout'>Checkout</CheckoutButton>
 					</CheckoutContainer>
 					</>
 					: <CartHeading>is empty</CartHeading>
 			}
-			<CloseButton onClick={toggleCart.bind(this, false)}/>
+			<CloseButton onClick={toggleCart}/>
 		</Body>
 )
 export default Cart

@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import styled from 'styled-components'
-import Book from './BookContainer'
+import { Book } from '../types'
+import BookCard from './BookContainer'
 import SortField from './FilterContainer'
 
 const Body = styled.div`
@@ -70,7 +71,13 @@ const Placeholder = styled.p`
 	font-size: 18px;
 `
 
-export default function Books({books, isReady, showBooks}) {
+interface Props {
+	books: Book[]
+	isReady: boolean
+	showBooks: (books : Book[]) => void
+}
+
+export default function Books({books, isReady, showBooks} : Props) {
 
 	useEffect(() => {
 		fetch('https://cors-anywhere.herokuapp.com/https://infret.github.io/book-store/books.json', {
@@ -86,7 +93,7 @@ export default function Books({books, isReady, showBooks}) {
 				{isReady ?
 						<div>
 							<StyledUl>
-								{books.map((book, i) => <Book key={i} {...book}/>)}
+								{books.map((book, i) => <BookCard key={i} {...book}/>)}
 								{books.length === 0 && <Placeholder>Nothing found</Placeholder>}
 							</StyledUl>
 							<MoreButton>Browse more books</MoreButton>

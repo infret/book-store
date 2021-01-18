@@ -5,6 +5,7 @@ export interface Book{
 	image: string
 	price: number
 	rating: number
+	count: number
 	addToCart : (id: number) => Action
 }
 
@@ -15,7 +16,8 @@ export interface State{
 	cartItems: Book[]
 	sortBy: string
 	filterBy: string
-	count: number
+	cartCount: number
+	total: number
 	toggleCart: (isCartShown : boolean) => void
 }
 
