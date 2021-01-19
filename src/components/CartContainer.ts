@@ -4,19 +4,16 @@ import * as actions from '../actions'
 import { bindActionCreators, Dispatch } from 'redux'
 import Cart from './Cart'
 
-function countItems(array: Book[], key: keyof Book) {
-  const uniqueKeys = Array.from(new Set(array.map((item) => item[key])))
-  return uniqueKeys.map((uniqueKey) => {
-    const filteredArray = array.filter((item) => item[key] === uniqueKey)
-    return { cartCount: filteredArray.length, ...filteredArray[0] }
+function countItems(items: Book[]) {
+  items.forEach((item) => {
+    item.count = items.filter((object) => object.id === item.id).length
   })
+  return [...new Set(items)]
 }
 
 const mapStateToProps = (state: State) => ({
-  cartItems: countItems(state.cartItems, 'id'),
-  total: parseInt(
-    state.cartItems.reduce((total, item) => total + item.price, 0).toFixed(1)
-  ),
+  cartItems: countItems(state.cartItems),
+  total: parseInt(state.cartItems.reduce((total, item) => total + item.price, 0).toFixed(1)),
   cartCount: state.cartItems.length
 })
 
