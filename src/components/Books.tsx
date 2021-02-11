@@ -86,7 +86,7 @@ interface Props {
 export default function Books({ books, isReady, showBooks }: Props) {
   useEffect(() => {
     fetch(
-      'https://cors-anywhere.herokuapp.com/https://infret.github.io/book-store/books.json',
+      'https://secret-ocean-49799.herokuapp.com/https://infret.github.io/book-store/books.json',
       {
         method: 'GET'
       }
@@ -94,6 +94,7 @@ export default function Books({ books, isReady, showBooks }: Props) {
       .then((res) => res.json())
       .then((data) => {
         showBooks(data)
+        console.log(data)
       })
   }, [showBooks])
 
