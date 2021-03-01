@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Book } from '../types'
+import React from 'react'
 
 const Card = styled.li`
   width: 180px;
@@ -78,7 +79,7 @@ const BookCard = (book: Book) => (
     <Author>{book.author}</Author>
     <Container>
       <Price>${book.price}</Price>
-      <Button onClick={book.addToCart.bind(this, book.id)}>Add to cart</Button>
+      <Button onClick={() => book.addToCart(book.id)}>Add to cart</Button>
     </Container>
   </Card>
 )

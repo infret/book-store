@@ -7,8 +7,7 @@ import Header from './components/HeaderContainer'
 import Footer from './components/Footer'
 import { BrowserRouter } from 'react-router-dom'
 import reducer from './reducer'
-import { applyMiddleware, createStore } from 'redux'
-import logger from 'redux-logger'
+import { createStore } from 'redux'
 
 const GlobalStyle = createGlobalStyle`
 	* {
@@ -32,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyle />
-    <Provider store={createStore(reducer, applyMiddleware(logger))}>
+    <Provider store={createStore(reducer)}>
       <BrowserRouter>
         <Header />
         <Books />

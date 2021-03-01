@@ -134,13 +134,7 @@ interface Props {
   toggleCart: () => void
 }
 
-const Cart = ({
-  total,
-  cartCount,
-  cartItems,
-  removeFromCart,
-  toggleCart
-}: Props) => (
+const Cart = ({ total, cartCount, cartItems, removeFromCart, toggleCart }: Props) => (
   <Body>
     <CartHeading>Cart</CartHeading>
     {cartCount ? (
@@ -154,9 +148,7 @@ const Cart = ({
                 <Author>{item.author}</Author>
               </ItemDesc>
               <CartText>{item.count}</CartText>
-              <ItemButton onClick={removeFromCart.bind(this, item.id)}>
-                Remove
-              </ItemButton>
+              <ItemButton onClick={() => removeFromCart(item.id)}>Remove</ItemButton>
             </CartItem>
           ))}
         </CartItems>
